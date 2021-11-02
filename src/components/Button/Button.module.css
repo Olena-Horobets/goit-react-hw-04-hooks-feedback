@@ -1,0 +1,27 @@
+.option {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 22px;
+  font-weight: 700;
+  background-color: var(--accent-color);
+  color: var(--pale-grey-color);
+  transform: scale(1);
+
+  transition: background-color 150ms ease-out, color 150ms ease-out,
+    transform 150ms ease-out;
+}
+
+.option:not(:last-child) {
+  margin-right: 14px;
+}
+
+.option:hover {
+  background-color: var(--primary-color);
+}
+
+.option:active {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  transform: scale(0.9);
+}

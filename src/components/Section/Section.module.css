@@ -1,5 +1,26 @@
 .section {
+  padding: 20px;
+  border-radius: 4px;
+  background-color: var(--pale-grey-color);
+
+  display: inline-flex;
+  flex-direction: column;
+  width: 400px;
 }
 
 .title {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 34px;
+}
+
+.FeedbackOptions {
+  composes: section;
+  height: 160px;
+}
+
+.Statistics {
+  composes: section;
+  height: 280px;
 }

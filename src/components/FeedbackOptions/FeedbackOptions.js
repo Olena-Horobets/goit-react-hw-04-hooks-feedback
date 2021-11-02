@@ -1,4 +1,6 @@
 import s from '../FeedbackOptions/FeedbackOptions.module.css';
+
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { Button } from 'components/Button/Button';
 
@@ -13,5 +15,11 @@ class FeedbackOptions extends Component {
     );
   }
 }
+
+FeedbackOptions.propTypes = {
+  onGoodBtnClick: PropTypes.func.isRequired,
+  onNeutralBtnClick: PropTypes.func.isRequired,
+  onBadBtnClick: PropTypes.func.isRequired,
+};
 
 export { FeedbackOptions };
