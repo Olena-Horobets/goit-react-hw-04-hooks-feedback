@@ -1,11 +1,17 @@
 import s from '../Notification/Notification.module.css';
+import emoji from 'emoji-db.json';
 
 import PropTypes from 'prop-types';
 import { Component } from 'react';
 
 class Notification extends Component {
   render() {
-    return <p className={s.notification}>{this.props.message}</p>;
+    return (
+      <div className={s.notification}>
+        <p className={s.message}>{this.props.message}</p>
+        <p className={s.emoji}>{emoji['no-feedback']}</p>
+      </div>
+    );
   }
 }
 

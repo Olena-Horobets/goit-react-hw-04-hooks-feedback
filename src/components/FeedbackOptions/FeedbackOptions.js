@@ -8,18 +8,17 @@ class FeedbackOptions extends Component {
   render() {
     return (
       <div className={s.feedbackOptions}>
-        <Button name="good" onClick={this.props.onGoodBtnClick} />
-        <Button name="neutral" onClick={this.props.onNeutralBtnClick} />
-        <Button name="bad" onClick={this.props.onBadBtnClick} />
+        {this.props.options.map(el => {
+          return <Button key={el} name={el} onClick={this.props.optionFn} />;
+        })}
       </div>
     );
   }
 }
 
 FeedbackOptions.propTypes = {
-  onGoodBtnClick: PropTypes.func.isRequired,
-  onNeutralBtnClick: PropTypes.func.isRequired,
-  onBadBtnClick: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  optionFn: PropTypes.func.isRequired,
 };
 
 export { FeedbackOptions };

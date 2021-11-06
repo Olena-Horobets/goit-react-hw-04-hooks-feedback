@@ -15,21 +15,9 @@ class App extends Component {
     bad: 0,
   };
 
-  onGoodBtnClick = () => {
+  onBtnClick = e => {
     this.setState(prevState => {
-      return { good: prevState.good + 1 };
-    });
-  };
-
-  onNeutralBtnClick = () => {
-    this.setState(prevState => {
-      return { neutral: prevState.neutral + 1 };
-    });
-  };
-
-  onBadBtnClick = () => {
-    this.setState(prevState => {
-      return { bad: (prevState.bad += 1) };
+      return { [e.target.name]: (prevState[e.target.name] += 1) };
     });
   };
 
@@ -46,16 +34,13 @@ class App extends Component {
   };
 
   render() {
+    const options = Object.keys(this.state);
     return (
       <div className={s.container}>
         <h1 className="hidden">Cafe Espresso review page</h1>
         <div className={s.wrapper}>
           <Section title="Please, leave your vote" class="FeedbackOptions">
-            <FeedbackOptions
-              onGoodBtnClick={this.onGoodBtnClick}
-              onNeutralBtnClick={this.onNeutralBtnClick}
-              onBadBtnClick={this.onBadBtnClick}
-            />
+            <FeedbackOptions options={options} optionFn={this.onBtnClick} />
           </Section>
 
           <Section title="Statistics" class="Statistics">
@@ -68,7 +53,7 @@ class App extends Component {
                 percentage={this.countPositiveFeedbackPercentage()}
               />
             ) : (
-              <Notification message="No feedback given yet" />
+              <Notification message="No feedback is given yet" />
             )}
           </Section>
         </div>
