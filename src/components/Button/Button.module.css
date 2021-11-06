@@ -7,6 +7,7 @@
   background-color: var(--accent-color);
   color: var(--pale-grey-color);
   transform: scale(1);
+  cursor: pointer;
 
   transition: background-color 150ms ease-out, color 150ms ease-out,
     transform 150ms ease-out;

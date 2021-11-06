@@ -16,6 +16,7 @@ class App extends Component {
   };
 
   onBtnClick = e => {
+    console.log(e.target);
     this.setState(prevState => {
       return { [e.target.name]: (prevState[e.target.name] += 1) };
     });
