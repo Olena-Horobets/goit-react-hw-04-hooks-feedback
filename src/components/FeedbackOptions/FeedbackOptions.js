@@ -9,7 +9,9 @@ class FeedbackOptions extends Component {
     return (
       <div className={s.feedbackOptions}>
         {this.props.options.map(el => {
-          return <Button key={el} name={el} onClick={this.props.optionFn} />;
+          return (
+            <Button key={el} name={el} onClick={this.props.optionHandler} />
+          );
         })}
       </div>
     );
@@ -18,7 +20,6 @@ class FeedbackOptions extends Component {
 
 FeedbackOptions.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
-  optionFn: PropTypes.func.isRequired,
 };
 
 export { FeedbackOptions };

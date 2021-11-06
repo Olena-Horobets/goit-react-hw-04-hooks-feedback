@@ -7,23 +7,29 @@ class Statistics extends Component {
   render() {
     return (
       <>
-        <p className={s.text}>Good: {this.props.good}</p>
-        <p className={s.text}>Neutral: {this.props.neutral}</p>
-        <p className={s.text}>Bad: {this.props.bad}</p>
+        {this.props.options.map(el => {
+          return (
+            <p key={el} className={s.text}>
+              {el.charAt(0).toUpperCase() + el.slice(1)}:{' '}
+              {this.props.stateData[el]}
+            </p>
+          );
+        })}
 
-        <p className={s.text}>Total votes: {this.props.total}</p>
-        {/* <p>Percentage of good votes: {this.props.percentage}%</p> */}
+        <p className={s.textTotal}>Total votes: {this.props.total}</p>
       </>
     );
   }
 }
 
 Statistics.propTypes = {
-  good: PropTypes.number,
-  neutral: PropTypes.number,
-  bad: PropTypes.number,
-  total: PropTypes.number,
-  percentage: PropTypes.number,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  stateData: PropTypes.shape({
+    good: PropTypes.number,
+    neutral: PropTypes.number,
+    bad: PropTypes.number,
+  }).isRequired,
+  total: PropTypes.number.isRequired,
 };
 
 export { Statistics };

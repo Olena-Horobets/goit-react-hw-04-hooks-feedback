@@ -20,6 +20,10 @@
   background-color: var(--primary-color);
 }
 
+.option:focus {
+  outline: none;
+}
+
 .option:active {
   background-color: var(--secondary-color);
   color: var(--primary-color);
