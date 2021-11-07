@@ -7,15 +7,10 @@ import emoji from 'emoji-db.json';
 
 class Button extends Component {
   render() {
-    const { name } = this.props;
+    const { name, onClick } = this.props;
 
     return (
-      <button
-        type="button"
-        name={name}
-        className={s.option}
-        onClick={this.props.onClick}
-      >
+      <button type="button" name={name} className={s.option} onClick={onClick}>
         {emoji[name]} {name}
       </button>
     );
