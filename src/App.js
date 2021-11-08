@@ -22,7 +22,9 @@ class App extends Component {
   };
 
   countTotalFeedback = () => {
-    return this.state.good + this.state.neutral + this.state.bad;
+    return Object.values(this.state).reduce((acc, el) => {
+      return acc + el;
+    }, 0);
   };
 
   render() {

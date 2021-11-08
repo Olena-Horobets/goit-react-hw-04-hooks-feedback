@@ -1,6 +1,6 @@
 .container {
   width: 950px;
-
+  height: 100vh;
   margin-right: auto;
   margin-left: auto;
   display: flex;
@@ -11,6 +11,6 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  height: 100vh;
+  justify-content: space-between;
+  height: 550px;
 }

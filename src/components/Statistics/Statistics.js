@@ -11,12 +11,14 @@ class Statistics extends Component {
           return (
             <p key={el} className={s.text}>
               {el.charAt(0).toUpperCase() + el.slice(1)}:{' '}
-              {this.props.stateData[el]}
+              <span>{this.props.stateData[el]}</span>
             </p>
           );
         })}
 
-        <p className={s.textTotal}>Total votes: {this.props.total}</p>
+        <p className={s.textTotal}>
+          Total votes: <span>{this.props.total}</span>
+        </p>
       </>
     );
   }

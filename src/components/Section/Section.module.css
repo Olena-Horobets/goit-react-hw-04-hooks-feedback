@@ -5,6 +5,7 @@
 
   display: inline-flex;
   flex-direction: column;
+
   width: 400px;
 }
 
@@ -18,6 +19,7 @@
 .FeedbackOptions {
   composes: section;
   height: 160px;
+  justify-content: space-around;
 }
 
 .Statistics {

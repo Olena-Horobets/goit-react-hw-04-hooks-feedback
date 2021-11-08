@@ -3,8 +3,10 @@
   --secondary-color: #ffb55c;
   --accent-color: #3e7c17;
   --pale-grey-color: #e8e1d9;
-  --gradient-base: rgba(255, 255, 255, 0.288);
-  --grad-accent: #ffd9aa93;
+  --gradient-base: rgba(255, 255, 255, 0.356);
+  --grad-accent: #e8e1d9;
+
+  --basic-animation: 150ms ease-out;
 }
 
 * {
