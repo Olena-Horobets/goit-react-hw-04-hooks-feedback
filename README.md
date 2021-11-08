@@ -17,4 +17,4 @@ Widget is realized on React-Create-App Also used:
 
 ## Preview
 
-<img width=“964” alt=“gif-preview” src=“https://github.com/Olena-Horobets/goit-react-hw-02-feedback/blob/main/src/images/cafe-review.gif” />
+![gif-preview](https://github.com/Olena-Horobets/goit-react-hw-02-feedback/blob/main/src/images/cafe-review.gif)
