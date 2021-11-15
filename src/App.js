@@ -33,14 +33,14 @@ class App extends Component {
       <div className={s.container}>
         <h1 className="hidden">Cafe Espresso review page</h1>
         <div className={s.wrapper}>
-          <Section title="Please, leave your vote" class="FeedbackOptions">
+          <Section title="Please, leave your vote" styleClass="FeedbackOptions">
             <FeedbackOptions
               options={options}
               optionHandler={this.onBtnClick}
             />
           </Section>
 
-          <Section title="Statistics" class="Statistics">
+          <Section title="Statistics" styleClass="Statistics">
             {this.countTotalFeedback() ? (
               <Statistics
                 options={options}
