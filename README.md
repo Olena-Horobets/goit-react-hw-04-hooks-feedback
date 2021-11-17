@@ -8,12 +8,13 @@ colorful diagram aside.
 
 ## Used technologies
 
-Widget is realized on React-Create-App Also used:
+Widget is realized on React-Create-App. Also used:
 
 - HTML;
 - CSS modules;
 - JavaScript;
 - JSX templates:
+- React hooks;
 
 ## Preview
 
