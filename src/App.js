@@ -1,6 +1,6 @@
 import s from 'App.module.css';
 
-import { Component } from 'react';
+import { useState } from 'react';
 
 import { Section } from 'components/Section/Section';
 import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
@@ -8,58 +8,68 @@ import { Statistics } from 'components/Statistics/Statistics';
 import { Diagram } from 'components/Diagram/Diagram';
 import { Notification } from 'components/Notification/Notification';
 
-class App extends Component {
-  state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
+function App() {
+  const [good, setGood] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0);
+
+  const values = {
+    good,
+    neutral,
+    bad,
   };
 
-  onBtnClick = e => {
-    this.setState(prevState => {
-      return { [e.target.name]: (prevState[e.target.name] += 1) };
-    });
+  const onBtnClick = e => {
+    let callback;
+    switch (e.target.name) {
+      case 'good':
+        callback = setGood(prev => prev + 1);
+        break;
+      case 'neutral':
+        callback = setNeutral(prev => prev + 1);
+        break;
+      case 'bad':
+        callback = setBad(prev => prev + 1);
+        break;
+      default:
+    }
+    return callback;
   };
 
-  countTotalFeedback = () => {
-    return Object.values(this.state).reduce((acc, el) => {
+  const countTotalFeedback = () => {
+    return Object.values(values).reduce((acc, el) => {
       return acc + el;
     }, 0);
   };
 
-  render() {
-    const options = Object.keys(this.state);
-    return (
-      <div className={s.container}>
-        <h1 className="hidden">Cafe Espresso review page</h1>
-        <div className={s.wrapper}>
-          <Section title="Please, leave your vote" styleClass="FeedbackOptions">
-            <FeedbackOptions
-              options={options}
-              optionHandler={this.onBtnClick}
-            />
-          </Section>
+  const options = Object.keys(values);
+  return (
+    <div className={s.container}>
+      <h1 className="hidden">Cafe Espresso review page</h1>
+      <div className={s.wrapper}>
+        <Section title="Please, leave your vote" styleClass="FeedbackOptions">
+          <FeedbackOptions options={options} optionHandler={onBtnClick} />
+        </Section>
 
-          <Section title="Statistics" styleClass="Statistics">
-            {this.countTotalFeedback() ? (
-              <Statistics
-                options={options}
-                stateData={this.state}
-                total={this.countTotalFeedback()}
-              />
-            ) : (
-              <Notification message="No feedback is given yet" />
-            )}
-          </Section>
-        </div>
-        <Diagram
-          options={options}
-          stateData={this.state}
-          total={this.countTotalFeedback()}
-        />
+        <Section title="Statistics" styleClass="Statistics">
+          {countTotalFeedback() ? (
+            <Statistics
+              options={options}
+              stateData={values}
+              total={countTotalFeedback()}
+            />
+          ) : (
+            <Notification message="No feedback is given yet" />
+          )}
+        </Section>
       </div>
-    );
-  }
+      <Diagram
+        options={options}
+        stateData={values}
+        total={countTotalFeedback()}
+      />
+    </div>
+  );
 }
 
 export { App };
