@@ -7,7 +7,7 @@ import emoji from 'emoji-db.json';
 function Button({ name, onClick }) {
   return (
     <button type="button" name={name} className={s.option} onClick={onClick}>
-      {emoji[name]} {name}
+      <span className={s.emoji}>{emoji[name]}</span> {name}
     </button>
   );
 }
