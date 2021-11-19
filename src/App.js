@@ -20,20 +20,18 @@ function App() {
   };
 
   const onBtnClick = e => {
-    let callback;
     switch (e.target.name) {
       case 'good':
-        callback = setGood(prev => prev + 1);
-        break;
+        return setGood(prev => prev + 1);
+
       case 'neutral':
-        callback = setNeutral(prev => prev + 1);
-        break;
+        return setNeutral(prev => prev + 1);
+
       case 'bad':
-        callback = setBad(prev => prev + 1);
-        break;
+        return setBad(prev => prev + 1);
+
       default:
     }
-    return callback;
   };
 
   const countTotalFeedback = () => {
